@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+
+    <title>Game Home</title>
+
+    <style>
+        @font-face {
+            font-family: 'a';
+            src: url(font/ClimateCrisisKR-1979.ttf);
+        }
+
+        /* --------------header-------------- */
+        header {
+            overflow: hidden;
+        }
+
+        #logo {
+            float: right;
+
+        }
+
+        #logo > h1 {
+            font-family: 'a';
+            font-size: 3em;
+            padding: 1em 1em 0 0;
+        }
+
+        /* --------------wrapper-------------- */
+        #device {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: 400px;
+            background-color: #c0c0c0;
+            
+            border-radius: 10px 10px 50px 10px;
+        }
+
+        #wrapper {
+            height: 100%;
+            width: 100%;
+            padding: 5%;
+
+            box-sizing: border-box;
+            
+        }
+
+
+        /* --------------display-------------- */
+        #display {
+            height: 60%;
+            width: 100%;
+            background-color: rgb(100, 100, 100);
+            padding: 10%;
+
+            box-sizing: border-box;
+            border-radius: 10px 10px 50px 10px;
+
+        }
+
+        #inner_display {
+            background-color: rgb(62, 79, 30);
+            border: 1px solid black;
+            height: 100%;
+        }
+        /* --------------controller-------------- */
+
+        #controller > p {
+            padding-top: 0.5em;
+        }
+
+
+        #controller > p > span:nth-child(2) {
+            font-size: 1.5em;
+
+        }
+        #controller > p > span:nth-child(3) {
+            font-size: 0.7em;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <h1>RETRO GAme</h1>
+        </div>
+    </header>
+
+    <content>
+        <div id="device">
+            <div id="wrapper">
+                <div id="display">
+                    <div id="inner_display">
+                        <a href="stack.html" class="page-transition">Go to Game</a>
+                    </div>
+                </div>
+                <div id="controller">
+                    <p>
+                        <span>JS </span>
+                        <span>Gameboy</span>
+                        <span>TM</span>
+                    </p>
+                    <button>↑</button>
+                    <button>↑</button>
+                    <button>↑</button>
+                    <button>↑</button>
+                    <button>ok</button>
+                </div>
+            </div>
+        </div>
+    </content>
+
+
+</body>
+
+</html>

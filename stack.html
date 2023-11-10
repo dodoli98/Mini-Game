@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stack Game</title>
+
+    <!-- css -->
+    <link rel="stvylesheet" href="reset.css">
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* -----------컨테이너----------- */
+        #container {
+            border: 1px solid #000;
+            width: 300px;
+            height: 500px;
+        }
+
+        /* -----------wrapper----------- */
+        #wrapper {
+            box-sizing: border-box;
+            height: 100%;
+            /* 고정 높이 설정 */
+            width: 100%;
+            padding: 5%;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* -----------play_diaplay----------- */
+        #play_diaplay {
+            height: 80%;
+            border: 1px solid #000;
+            width: 100%;
+
+        }
+
+        /* -----------buttons----------- */
+        #buttons {
+            height: 15%;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #000;
+
+            display: flex;
+
+            font-size: 2em;
+
+            background-color: #E1F1E7;
+        }
+
+        #buttons > div {
+            /* 각 div가 동일한 너비를 가지도록 함 */
+            flex: 1;
+
+            /* 화살표 가운데 정렬 */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 컨테이너 -->
+    <div id="container">
+        <div id="wrapper">
+            <!-- 게임 플레이화면 -->
+            <div id="play_diaplay">
+
+            </div>
+
+            <!-- 조작버튼 -->
+            <div id="buttons">
+                <div>←</div>
+                <div>↓</div>
+                <div>→</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
