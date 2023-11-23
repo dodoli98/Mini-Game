@@ -53,11 +53,10 @@
 /*가로 너비가 768px 이하일 때 아래 스타일 적용*/
 @media(max-width: 768px) {
     header {
-        height: 15vh;
+        padding: 1em;
     }
-
     #logo {
-        font-size: 10vw;
+        font-size: 2em;
     }
 
     #device {
@@ -69,12 +68,11 @@
 /* 가로 너가 769px 이상일 때 스타일 */
 @media (min-width: 769px) {
     header {
-        height: 15vh;
         padding: 1em;
     }
 
     #logo {
-        font-size: 3vw;
+        font-size: 3em;
     }
 
     #device {
@@ -94,24 +92,20 @@ header {
     color: white;
     font-family: neon1;
     position: relative;
+    text-align: center;
 }
 
 
 
 #logo {
     white-space : nowrap;
+
     padding: 2vw;
-    overflow: hidden;
+
     display: inline-block;
     border-radius: 0.5em;
     box-shadow: 0 0 7px #fff,
     0 0 10px rgb(207, 51, 147);
-
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 #logo> span:nth-child(1) {
@@ -191,18 +185,14 @@ content {
     color: rgba(43, 43, 43, 1);
     
 }
-
 #inner_display > p {
+    padding-bottom: 1em;
+}
+
+#games > p {
     padding-bottom: 1em;
     position: relative;
 }
-/* 
-#inner_display > p:nth-child(2)::before {
-    content : '♥ ';
-
-    color: pink;
-} */
-
 
 #pointer {
     position: absolute;
@@ -289,3 +279,35 @@ content {
     cursor: pointer;
 
 }
+
+
+
+
+
+/* --------------포인터가 가리키는 요소-------------- */
+.pointer_parent {
+    color: #ffffff;
+}
+
+.nonPoint_parent {
+    color: rgba(43, 43, 43, 1);
+}
+
+
+/* --------------버튼 애니메이션-------------- */
+/* button {
+    animation: buttonClickAnimation 10s;
+    transition: background-color 0.3s ease; /* 변경될 때 애니메이션 효과 설정 */
+}
+
+@keyframes buttonClickAnimation {
+    0% {
+        background-color: lightblue;
+    }
+    50% {
+        background-color: darkblue;
+    }
+    100% {
+        background-color: lightblue;
+    }
+} */

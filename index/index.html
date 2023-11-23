@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="style.css">
+
     <title>Game Home</title>
+
+    <script src="main.js"></script>
 
 </head>
 
@@ -18,19 +21,24 @@
             <span>RETR</span><span>O</span> <span>GAme</span>
         </h1>
     </header>
-
     <content>
         <div id="device">
             <div id="wrapper">
                 <div id="display">
                     <div id="inner_display">
                         <p>PLAY RETRO GAME!!</p>
-                        <p class="game">
-                            <span id="pointer">⇢</span>
-                            <a href="../stack/stack.html">STACK</a>
-                        </p>
-                        <p class="game"><a href="">TETRIS</a></p>
-                        <p class="game"><a href="">Pac-Man</a></p>
+                        <div id="games">
+                            <p class="pointer_parent">
+                                <span id="pointer" >⇢</span>
+                                <a href="../stack/stack.html">STACK</a>
+                            </p>
+                            <p class="nonPoint_parent">
+                                <a href="">TETRIS</a>
+                            </p>
+                            <p class="nonPoint_parent">
+                                <a href="">Pac-Man</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div id="controller">
@@ -45,21 +53,21 @@
                         <div>
                             <div id="arrows">
                                 <div>
-                                    <button>↑</button>
+                                    <button id="upKey">↑</button>
                                 </div>
                                 <div>
                                     <button>←</button>
                                     <button>→</button>
                                 </div>
                                 <div>
-                                    <button>↓</button>
+                                    <button id="downKey">↓</button>
 
                                 </div>
                             </div>
                         </div>
 
                         <div>
-                            <button>A</button>
+                            <button id="aKey">A</button>
                         </div>
 
                     </div>
