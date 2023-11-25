@@ -10,8 +10,6 @@
 let pointer;
 let currentParent;
 
-
-
 // 포인터를 찾는 함수
 function findPointer() {
     pointer = document.getElementById("pointer");
@@ -79,26 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(currentParent);
 
 
+    // 키다운 이벤트
     document.addEventListener('keydown', function (event) {
-        findPointer();
-        console.log(pointer);
-
-        findPointerParent();
-        console.log(currentParent);
-
         // 아래 방향키
         if (event.key === 'ArrowDown') {
             // 1. 포인터를 찾기
             findPointer();
             console.log(pointer);
-
             // 2. 포인터의 부모요소 찾기
             findPointerParent();
             console.log(currentParent);
-
             // 3. 기능실행
             movePointerDown();
-
        
         }
 

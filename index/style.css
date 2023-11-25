@@ -282,8 +282,6 @@ content {
 
 
 
-
-
 /* --------------포인터가 가리키는 요소-------------- */
 .pointer_parent {
     color: #ffffff;
@@ -295,9 +293,14 @@ content {
 
 
 /* --------------버튼 애니메이션-------------- */
-/* button {
-    animation: buttonClickAnimation 10s;
-    transition: background-color 0.3s ease; /* 변경될 때 애니메이션 효과 설정 */
+button {
+    background-color: rgb(115, 25, 70);
+    transition: background-color 0.3s ease-in-out;
+
+}
+.pressed {
+    background-color: rgb(115, 25, 70);
+    color: #fff;
 }
 
 @keyframes buttonClickAnimation {
@@ -310,4 +313,4 @@ content {
     100% {
         background-color: lightblue;
     }
-} */
+}
