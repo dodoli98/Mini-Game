@@ -16,7 +16,6 @@
 }
 
 @keyframes flux {
-
     0%,
     100% {
         text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE,
@@ -30,6 +29,7 @@
         color: #146C80;
     }
 }
+
 /* 폰트 */
 @font-face {
     font-family: neon1;
@@ -173,7 +173,7 @@ content {
 
 #inner_display {
     /* background-color: rgb(62, 79, 30); */
-    border: 1px solid black;
+    border: 1px solid lightgray;
     height: 100%;
     box-sizing: border-box;
     padding: 1em;

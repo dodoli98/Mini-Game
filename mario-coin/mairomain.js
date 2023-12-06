@@ -130,9 +130,11 @@ function update() {
 }
 
 function render() {
+    // 화면 지우기
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // 이미지 그리기
     ctx.drawImage(mario, x, y);
-    ctx.fillText('SCORE: '+score, 20, 20);
+    ctx.fillText('SCORE: '+ score, 20, 20);
     ctx.font = "italic bold 15px Arial, sans-serif"; //Arial서체 없을 경우, sans-serif 적용
     for (let i = 0; i < coinList.length; i++) {
         ctx.drawImage(coin, coinList[i].x, coinList[i].y);
@@ -154,7 +156,7 @@ function main() {
         ctx.fillText("GAME OVER", 200, 180);
         ctx.strokeText("GAME OVER", 200, 180);
 
-
+        document.getElementById("restart").style.display = "block";
     }
 }
 
