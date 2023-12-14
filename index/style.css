@@ -30,287 +30,147 @@
     }
 }
 
-/* 폰트 */
+/* 용량을 줄이기 위해 웹폰트사용 */
 @font-face {
-    font-family: neon1;
-    src: url(../font/neon2.otf);
-}
-
-@font-face {
-    font-family: bit1;
-    src: url(../font/bit1.ttf);
-}
-@font-face {
-    font-family: bit2;
-    src: url(../font/bit2.ttf);
+    font-family: 'DNFBitBitv2';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
 }
 
 
-/*
-로고의 폰트 크기와 디바이스에 넓이는 디스플레이의 사이즈별로 다르게 설정
- */
-
-/*가로 너비가 768px 이하일 때 아래 스타일 적용*/
-@media(max-width: 768px) {
-    header {
-        padding: 1em;
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
     }
-    #logo {
-        font-size: 2em;
-    }
-
-    #device {
-        height: 70vh;
-        width: 70vw;
+    50%{
+        transform:translateY(50%);
     }
 }
 
-/* 가로 너가 769px 이상일 때 스타일 */
-@media (min-width: 769px) {
-    header {
-        padding: 1em;
-    }
 
-    #logo {
-        font-size: 3em;
-    }
-
-    #device {
-        height: 70vh;
-        width: 30vw;
-    }
-}
 
 /* --------------body (bg color)-------------- */
 
 body {
     background-color: #000000;
+    color: white;
+
 }
 
 /* --------------header-------------- */
 header {
+    padding: 2em;
+
     color: white;
     font-family: neon1;
     position: relative;
     text-align: center;
+
+    /* 웹폰트 */
+    font-family: 'DNFBitBitv2';
+
+    margin-bottom: 1em;
 }
 
 
 
 #logo {
-    white-space : nowrap;
-
+    font-size: 3em;
     padding: 2vw;
-
+    
     display: inline-block;
+
+    white-space : nowrap;
     border-radius: 0.5em;
     box-shadow: 0 0 7px #fff,
     0 0 10px rgb(207, 51, 147);
+
+    margin-bottom: 0.5em;
 }
 
 #logo> span:nth-child(1) {
     color: #FB4264;
     text-shadow: 0.1em 0.1em 0.1em #F40A35;
-
     animation: neon 2s ease infinite;
-    -moz-animation: neon 2s ease infinite;
-    -webkit-animation: neon 2s ease infinite;
-
 }
 
 #logo> span:nth-child(3) {
     color: #426DFB;
     text-shadow: 0.1em 0.1em 0.1em #426DFB;
     animation: flux 2s linear infinite;
-    -moz-animation: flux 2s linear infinite;
-    -webkit-animation: flux 2s linear infinite;
-    -o-animation: flux 2s linear infinite;
-
 }
 
 
+#header > p {
+    animation: bounce 4s infinite linear; /* 4초에 걸쳐 반복하도록 수정 */
+}
 
-/* --------------device (game gear)-------------- */
-content {
+/* --------------content-------------- */
+#content {
+    margin-top: 5em;
+}
+
+/* ul */
+#gameList {
     display: flex;
     justify-content: center;
-}
-
-#device {
-    background-color: #c0c0c0;
-
-    border-radius: 10px 10px 50px 10px;
+    font-family: 'DNFBitBitv2';
 
 
-    /* 
-        https://getcssscan.com/css-box-shadow-examples
-        해당 사이트에서 마음에 드는 그림자를 선택가능
-    */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-#wrapper {
-    height: 100%;
-    width: 100%;
-    padding: 3%;
-
-    box-sizing: border-box;
 
 }
 
 
-/* --------------display-------------- */
-#display {
-    height: 60%;
-    width: 100%;
-    background-color: rgb(100, 100, 100);
-    padding: 7%;
+/* li */
+.game {
+    display: flex;
+    flex-direction: column;
 
-    box-sizing: border-box;
-    border-radius: 10px 10px 50px 10px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 7px #fff, 0 0 10px rgb(255, 255, 255);
 
-}
-
-#inner_display {
-    /* background-color: rgb(62, 79, 30); */
-    border: 1px solid lightgray;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 1em;
-
-    text-align: center;
-
-    font-family: bit2;
-    font-size: 1.2em;
-    color: rgba(43, 43, 43, 1);
-    
-}
-#inner_display > p {
-    padding-bottom: 1em;
-}
-
-#games > p {
-    padding-bottom: 1em;
     position: relative;
+
 }
 
-#pointer {
-    position: absolute;
-    left: 15%;
-}
-    
+.game:nth-child(1), .game:nth-child(2) {
+    margin-right: 10vw;
+} 
 
-/* --------------controller-------------- */
 
-#controller {
-    height: 40%;
-}
-
-/* --------------controller > p-------------- */
-#controller>p {
-    height: 10%;
-    padding-top: 0.5em;
+.gameImg {
+    width: 20vw;
+    height: 45vh;
 }
 
 
-#controller>p>span:nth-child(2) {
+
+.game > a > img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.gameName {
     font-size: 1.5em;
-
-}
-
-#controller>p>span:nth-child(3) {
-    font-size: 0.7em;
-
-}
-
-/* --------------buttons-------------- */
-#buttons_wrapper {
-    height: 90%;
-}
-
-#buttons_wrapper>div {
-    float: left;
-    width: 50%;
-    height: 100%; 
-}
-
-/* 상하좌우 버튼 */
-#arrows {
-    height: 50%;
-    width: 70%;
-
-    position: relative;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-
-    display: inline-block;
+    margin-top: 0.5em;
     text-align: center;
 }
 
-#arrows>div {
-    height: 33.3%;
-}
-
-#arrows>div>button {
-    cursor: pointer;
-    height: 100%;
-    width: 30%;
-
-}
-
-#arrows>div:nth-child(2)>button:nth-child(1) {
-    float: left;
-}
-
-#arrows>div:nth-child(2)>button:nth-child(2) {
-    float: right;
-}
 
 
+/* pointer */
+#pointer {
+    font-size: 0.8em;
+    position: absolute;
 
-
-/* --------------ok button-------------- */
-#buttons_wrapper>div:nth-child(2)>button {
-    position: relative;
-    top: 50%;
+    top: -2%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+    transform: translate(-50%, -2%);
 
 }
 
 
-
-/* --------------포인터가 가리키는 요소-------------- */
-.pointer_parent {
-    color: #ffffff;
-}
-
-.nonPoint_parent {
-    color: rgba(43, 43, 43, 1);
-}
-
-
-/* --------------버튼 애니메이션-------------- */
-button {
-    background-color: rgb(115, 25, 70);
-    transition: background-color 0.3s ease-in-out;
-
-}
-.pressed {
-    background-color: rgb(115, 25, 70);
-    color: #fff;
-}
-
-@keyframes buttonClickAnimation {
-    0% {
-        background-color: lightblue;
-    }
-    50% {
-        background-color: darkblue;
-    }
-    100% {
-        background-color: lightblue;
-    }
-}
+   

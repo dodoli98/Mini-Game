@@ -13,73 +13,56 @@
     <!-- 함수 기반 자바스크립트 -->
     <!-- <script src="main.js"></script> -->
 
-    <!-- 객체지향 자바스크립트 -->
-    <script src="oop.js"></script>
+ 
 
 </head>
 
 <body>
 
-    <header>
+    <header id="header">
         <h1 id="logo">
             <span>RETR</span><span>O</span> <span>GAme</span>
         </h1>
+        <p>
+            좌우 방향키를 눌러보세요!
+        </p>
     </header>
-    <content>
-        <div id="device">
-            <div id="wrapper">
-                <div id="display">
-                    <div id="inner_display">
-                        <p>PLAY RETRO GAME!!</p>
-                        <div id="games">
-                            <p class="pointer_parent">
-                                <span id="pointer" >⇢</span>
-                                <a href="../stack/stack.html">STACK</a>
-                            </p>
-                            <p class="nonPoint_parent">
-                                <a href="../mario-coin/mariocoin.html">MARIO COIN</a>
-                            </p>
-                            <p class="nonPoint_parent">
-                                <a href="">Pac-Man</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="controller">
-                    <p>
-                        <span>JS </span>
-                        <span>Gameboy</span>
-                        <span>TM</span>
-                    </p>
 
-                    <div id="buttons_wrapper">
+    <content id="content">
+        <ul id="gameList">
+            <li class="game" class="selectedGame">
+                <p id="pointer">PRESS ENTER</p>
+                <a class="gameImg" href="../mario-coin/mariocoin.html">
+                    <img src="images.jpeg" alt="mario coin game">
+                </a>
+                <a class="gameName" href="../mario-coin/mariocoin.html">
+                    MARIO COIN
+                </a>
+            </li>
+            <li class="game">
+                <a class="gameImg" href="">
+                    <img src="images.jpeg" alt="mario coin game">
+                </a>
+                <a class="gameName" href="">
+                    STACK
+                </a>
+            </li>
+            <li class="game">
+                <a class="gameImg" href="">
+                    <img src="images.jpeg" alt="mario coin game">
+                </a>
+                <a class="gameName" href="">
+                    OIOI
+                </a>
+            </li>
 
-                        <div>
-                            <div id="arrows">
-                                <div>
-                                    <button id="upKey">↑</button>
-                                </div>
-                                <div>
-                                    <button>←</button>
-                                    <button>→</button>
-                                </div>
-                                <div>
-                                    <button id="downKey">↓</button>
 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button id="aKey">A</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div> <!-- device -->
+        </ul>
     </content>
+    
 
+       <!-- 객체지향 자바스크립트 -->
+       <script src="oop.js"></script>
 </body>
 
 </html>

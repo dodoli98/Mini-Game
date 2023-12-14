@@ -1,4 +1,5 @@
 // 포인터 컨트롤러
+// index.html 에서 press enter 문구가 포인터 역할을 한다.
 class PointerController {
     constructor() {
         this.pointer = null;
@@ -15,7 +16,16 @@ class PointerController {
     findPointerParent() {
         if (this.pointer) {
             this.currentParent = this.pointer.parentNode;
-            console.log(this.currentParent)
+            console.log(this.currentParent);
+        }
+    }
+
+    // 현재 포인터가 가리키는 li요소 스타일 변경 
+    updateParentStyle() {
+        this.findPointerParent();
+        if (this.currentParent) {
+            // 새로운 스타일 적용
+            this.currentParent.style.boxShadow = "0 0 20px #fff, 0 0 10px rgb(227, 90, 155)";
         }
     }
 
@@ -34,20 +44,14 @@ class PointerController {
             const nextParent = this.currentParent.nextElementSibling;
             const previousParent = this.currentParent.previousElementSibling;
 
-            if (key === 'down' && nextParent) {
+            // 키다운 시 포인터가 가리키고 있는 현재요소는 새로적용된 스타일이 무조건 삭제 되어야한다.
+            if (key == 39 && nextParent) {
+                this.currentParent.style.boxShadow = "";
                 nextParent.appendChild(this.pointer);
-                console.log("핸재요소", this.currentParent);
-                console.log("다음요소", nextParent);
 
-                nextParent.className = "pointer_parent";
-                this.currentParent.className = "nonPoint_parent";
-
-            } else if (key === 'up' && previousParent) {
+            } else if (key == 37 && previousParent) {
+                this.currentParent.style.boxShadow = "";
                 previousParent.appendChild(this.pointer);
-                console.log("이전요소", previousParent);
-
-                previousParent.className = "pointer_parent";
-                this.currentParent.className = "nonPoint_parent";
 
             } 
         }
@@ -55,55 +59,29 @@ class PointerController {
 }
 
 
-class ButtonStyle {
-    constructor() {
-        this.upKey = document.getElementById("upKey");
-        this.downKey = document.getElementById("downKey");
-        this.aKey = document.getElementById("apKey");
-
-         // 버튼에 클릭 이벤트 추가
-         this.upKey.addEventListener("click", () => this.changeButtonStyle('up'));
-         this.downKey.addEventListener("click", () => this.changeButtonStyle('down'));
-    }
-
-    changeButtonStyle(key) {
-        // 모든 버튼에서 'pressed' 클래스 제거
-        this.upKey.classList.remove('pressed');
-        this.downKey.classList.remove('pressed');
-
-        // 눌린 버튼에 'pressed' 클래스 추가
-        if (key === 'down') {
-            this.downKey.classList.add('pressed');
-        } else if (key === 'up') {
-            this.upKey.classList.add('pressed');
-        }
-
-        // 0.5초 후에 스타일 초기화
-        setTimeout(() => {
-            this.upKey.classList.remove('pressed');
-            this.downKey.classList.remove('pressed');
-        }, 500);
-    }
-}
-
 
 document.addEventListener('DOMContentLoaded', function () {
     const pointerController = new PointerController();
-    const buttonStyle = new ButtonStyle();
-
+    pointerController.findPointer();
+    pointerController.findPointerParent();
+    pointerController.updateParentStyle(); // 좌우 키를 누를 때마다 스타일을 업데이트
+    
     // 키보드 이벤트 등록
     document.addEventListener('keydown', function (event) {
         pointerController.findPointer();
         pointerController.findPointerParent();
 
-        if (event.key === 'ArrowUp') {
-            pointerController.movePointer('up');
-            buttonStyle.changeButtonStyle('up')
+
+        if (event.key === 'ArrowRight') {
+            pointerController.movePointer(39);
+            pointerController.updateParentStyle(); // 좌우 키를 누를 때마다 스타일을 업데이트
+
         }
 
-        if (event.key === 'ArrowDown') {
-            pointerController.movePointer('down');
-            buttonStyle.changeButtonStyle('down')
+        if (event.key === "ArrowLeft") {
+            pointerController.movePointer(37);
+            pointerController.updateParentStyle(); // 좌우 키를 누를 때마다 스타일을 업데이트
+
         }
 
         if (event.key === 'Enter' && pointerController.currentParent) {

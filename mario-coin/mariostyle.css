@@ -1,3 +1,109 @@
-#restart {
-    display: none;
+/* 용량을 줄이기 위해 웹폰트사용 */
+@font-face {
+    font-family: 'DNFBitBitv2';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
+}
+
+
+/* --------------body (bg color)-------------- */
+
+body {
+    display: flex;
+   
+   
+    flex-direction: row;
+}
+
+#header, #side {
+    height: 100vh;
+    width: 30%;
+}
+
+#content {
+    height: 100vh;
+    width: 50%;
+}
+/* --------------header-------------- */
+#header {
+    font-family: neon1;
+    position: relative;
+    text-align: center;
+
+    box-sizing: border-box;
+    padding: 2vw;
+
+    /* 웹폰트 */
+    font-family: 'DNFBitBitv2';
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+
+#logo {
+    font-size: 2em;
+    padding: 2vw;
+    
+    display: inline-block;
+
+    border-radius: 0.5em;
+    box-shadow: 0 0 7px #fff,
+    0 0 10px #1041FF;
+
+
+    color: rgb(255, 53, 208);
+    text-shadow: 0.1em 0.1em 0.1em #ee40c243;
+
+    margin-bottom: 0.5em;
+}
+
+#button_wrapper > button {
+    width: 49%;
+    text-decoration: none;
+}
+   
+#button_wrapper > button:nth-child(2) > a {
+    display: block;
+    text-decoration: none;
+    cursor: default;
+
+}
+
+
+
+/* 게임설명 alter */
+ 
+#side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+#info {
+    transform: translateX(100%); 
+    transition: transform 0.3s ease; /* 애니메이션을 부드럽게 만듦 */
+
+    
+}
+
+#side:hover #info {
+    transform: translateX(0);
+}
+
+
+#arrow_button {
+    height: 40px;
+    width: 40px;
+    font-size: 1px;
+    background: url('../image/arrow.png') no-repeat center center;
+    background-size: cover; /* 이미지를 버튼에 맞게 조절 */
+    border: none;
 }
