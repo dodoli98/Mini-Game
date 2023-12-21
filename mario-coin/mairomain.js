@@ -1,11 +1,16 @@
 // 캔버스 세팅 
 let canvas;
 let ctx;
+
+// 컨텐츠 영역
+var contentBody = document.getElementById("content");
+
 canvas = document.createElement("canvas");
 ctx = canvas.getContext("2d")
 canvas.width = 400;
 canvas.height = 700;
-document.body.appendChild(canvas);
+// document.body.appendChild(canvas);
+contentBody.appendChild(canvas);
 
 // 마리오 좌표
 let x = canvas.width / 2 - 25;

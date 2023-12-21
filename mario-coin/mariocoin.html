@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="mariostyle.css">
 
+    <script src="button.js" defer></script>
+
+
+
     <title>Play Mario Coin</title>
-
-
 </head>
+
 <body>
     <div id="header">
         <h1 id="logo">
@@ -33,25 +36,46 @@
 
 
     <div id="content">
-
+        <div id="display_wrapper">
+            <div></div>
+            <div>
+                <div></div>
+            </div>
+        </div>
     </div>
 
 
+    <!--
+         BEM (block__element--modifier)
+         Block (블록): 기능적으로 독립된 모듈 또는 컴포넌트에 해당하는 부분을 나타낸다.
+         Element (엘리먼트): 블록 안에서 특정 기능을 수행하는 하위 부분으로서, 블록의 일부로만 의미가 있는 요소를 나타낸다.
+         Modifier (모디파이어): 블록이나 엘리먼트의 상태나 속성을 나타내는 클래스로서, 이를 통해 스타일의 다양한 변형을 쉽게 정의할 수 있다.
+     -->
     <aside id="side">
-        <div id="info">
-            <p>adsf</p>
+        <div class="menu-icon">
+            <span class="menu-icon__line menu-icon__line-left"></span>
+            <span class="menu-icon__line menu-icon__line-middle"></span>
+            <span class="menu-icon__line menu-icon__line-right"></span>
+        </div>
+
+        <div id="alter">
+            <p>
+            조작키 : 좌우 <br/>
+            restart : 재시작 <br/>
+            Return : 메인화면으로
+            </p>
         </div>
     </aside>
-
-    <button id="arrow_button">
-        &lt;
-    </button>
+    <!-- <script src="mairomain copy.js"></script> -->
 
 
+   
+    <!-- <button class="btn-9">Read More</button> -->
 
 
 
-    <!-- <script src="mairomain.js"></script> -->
+
+
 </body>
 
 </html>
