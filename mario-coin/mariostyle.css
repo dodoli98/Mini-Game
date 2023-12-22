@@ -6,13 +6,19 @@
     src: url('https://cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* --------------body (bg color)-------------- */
 body {
     display: flex;
-
-
     flex-direction: row;
+
+    background-color: black;
 }
 
 #header,
@@ -69,15 +75,36 @@ body {
 }
 
 #button_wrapper>button {
+    font-size: 1.3em;
     width: 49%;
+    height: 3vh;
     text-decoration: none;
+
+    color: white;
+    font-family: DungGeunMo;
+
+    border: 3px solid white;
+
+    background-color: #E76E55;
+
+    cursor: pointer;
+
+    box-shadow:inset -4px -4px rgba(0, 0, 0, .1);
+}
+
+#button_wrapper>button:hover {
+    background-color: #8C2022;
+    box-shadow:inset -6px -6px rgba(0, 0, 0, .4);
+
 }
 
 #button_wrapper>button:nth-child(2)>a {
+    color: white;
+
     display: block;
     text-decoration: none;
     cursor: default;
-
+    cursor: pointer;
 }
 
 
@@ -124,12 +151,9 @@ body {
     color: black;
     height: 100vh;
     width: 100%;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(125,125,125,0.4234068627450981) 100%);
-
-    
-
-    /* 화면 왼쪽으로 이동 */
+  
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.3757878151260504) 0%, rgba(205,205,205,0.5074404761904762) 100%);
     position: absolute;
     left: 100%;
     /* 이동할 때 애니메이션 적용 */
@@ -142,6 +166,7 @@ body {
 }
 
 .menu-icon {
+
     height: 30px;
     width: 30px;
     z-index: 2;
@@ -156,7 +181,7 @@ body {
     height: 2px;
     width: 30px;
     display: block;
-    background-color: black;
+    background-color: white;
     margin-bottom: 4px;
     transition: transform 0.2s ease, background-color 0.5s ease;
 }

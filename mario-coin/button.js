@@ -33,7 +33,7 @@ class XController {
             // getElementsByClassName를 사용하여 HTMLCollection을 반환한다. 
             // HTMLCollection은 직접적으로 스타일을 변경할 수 있는 방법이 없다. 대신 반복문을 이용해 개별 라인에 대해 스타일을 변경해야 한다.
             for (let i = 0; i < this.all_line.length; i++) {
-                this.all_line[i].style.backgroundColor = this.backgroundcolorChaged ? "black" : "white";
+                this.all_line[i].style.backgroundColor = this.backgroundcolorChaged ? "white" : "white";
             }
 
             this.alter.style.left = this.backgroundcolorChaged ? "100%" : "0%";

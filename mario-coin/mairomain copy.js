@@ -3,7 +3,7 @@ let canvas;
 let ctx;
 
 // 컨텐츠 영역
-var contentBody = document.getElementById("content");
+var contentBody = document.getElementById("game");
 
 canvas = document.createElement("canvas");
 ctx = canvas.getContext("2d")
