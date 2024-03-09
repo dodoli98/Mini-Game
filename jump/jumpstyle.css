@@ -14,6 +14,7 @@
 }
 
 /* --------------body (bg color)-------------- */
+/* 요소 배치 */
 body {
     display: flex;
     flex-direction: row;
@@ -21,20 +22,24 @@ body {
     background-color: black;
 }
 
-#header,
-#side {
+#header_content_wrapper{
+    width: 70%;
     height: 100vh;
+}
+
+#side {
     width: 30%;
 }
 
-#content {
-    height: 100vh;
-    width: 50%;
+#header {
+    height: 20%;
+}
 
+#content {
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 /* --------------header-------------- */
@@ -44,8 +49,7 @@ body {
     text-align: center;
 
     box-sizing: border-box;
-    padding: 2vw;
-
+    padding: 10vh 15vw 0vw 15vw;
     /* 웹폰트 */
     font-family: 'DNFBitBitv2';
 
@@ -53,14 +57,13 @@ body {
     flex-direction: column;
     justify-content: center;
 
-
 }
 
 
 #logo {
     font-size: 2em;
     padding: 2vw;
-
+    box-sizing: border-box;
     display: inline-block;
 
     border-radius: 0.5em;
@@ -90,6 +93,9 @@ body {
     cursor: pointer;
 
     box-shadow:inset -4px -4px rgba(0, 0, 0, .1);
+
+    
+    
 }
 
 #button_wrapper>button:hover {
@@ -111,8 +117,8 @@ body {
 /* --------------content-------------- */
 #display_wrapper {
     background-color: lightgray;
-    width: 410px;
-    height: 740px;
+    height: 410px;
+    width: 740px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -127,16 +133,17 @@ body {
 
 
 #display_wrapper > div:nth-child(2) {
+    width: 740px;
+    height: 380px;
     padding: 5px;
-    height: 700px;
 }
 
 #display_wrapper > div:nth-child(2) > div {
     border-radius: 10px;
 
     background-color: white;
-    height: 700px;
-    width: 400px;
+    width: 730px;
+    height: 370px;
 }
 
 

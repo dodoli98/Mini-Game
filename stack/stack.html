@@ -6,13 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Game Home</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="stackstyle.css">
+
+    <script src="../button.js" defer></script>
 
 
+
+    <title>Play Stack</title>
 </head>
 
 <body>
+    <div id="header">
+        <h1 id="logo">
+            Stack!
+        </h1>
+
+        <div id="button_wrapper">
+            <button>
+                Restart
+            </button>
+            <button>
+                <a href="../index/index.html">
+                    Return
+                </a>
+            </button>
+        </div>
+    </div>
+
+
+    <div id="content">
+        <div id="display_wrapper">
+            <div></div>
+            <div>
+                <div id="game"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--
+         BEM (block__element--modifier)
+         Block (블록): 기능적으로 독립된 모듈 또는 컴포넌트에 해당하는 부분을 나타낸다.
+         Element (엘리먼트): 블록 안에서 특정 기능을 수행하는 하위 부분으로서, 블록의 일부로만 의미가 있는 요소를 나타낸다.
+         Modifier (모디파이어): 블록이나 엘리먼트의 상태나 속성을 나타내는 클래스로서, 이를 통해 스타일의 다양한 변형을 쉽게 정의할 수 있다.
+     -->
+    <aside id="side">
+        <div class="menu-icon">
+            <span class="menu-icon__line menu-icon__line-left"></span>
+            <span class="menu-icon__line menu-icon__line-middle"></span>
+            <span class="menu-icon__line menu-icon__line-right"></span>
+        </div>
+
+        <div id="alter">
+            <p>
+                조작키 : 스페이스바
+            </p>
+            <p>
+                Restart : 재시작 
+            </p>
+            <p>
+                Return : 메인화면
+            </p>
+        </div>
+    </aside>
+    <script src="stackmain.js"></script>
+
+
    
+    <!-- <button class="btn-9">Read More</button> -->
+
+
+
+
+
 </body>
 
 </html>

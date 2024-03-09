@@ -1,114 +1,92 @@
-/**
-초기에 클래스는 첫번째 p요소에 있음
+// 포인터 컨트롤러
+// index.html 에서 press enter 문구가 포인터 역할을 한다.
+class PointerController {
+    constructor() {
+        this.pointer = null;
+        this.currentParent = null;
+    }
 
-키다운시 
-1. 포인터를 찾아서 다음 포인터의 부모요인 p 아래로 appendchild시킬것
-2. 그와 동시에 첫번째 p요소의 클래스를 다시 설정해줄것
- */
+    // 포인터를 찾는 메서드
+    findPointer() {
+        this.pointer = document.getElementById("pointer")
+        console.log(pointer);
+    }
 
-// 함수 호출시 마다 값을 재할당하므로 let변수 설정
-let pointer;
-let currentParent;
+    // 현재 포인터가 가리키는 요소
+    findPointerParent() {
+        if (this.pointer) {
+            this.currentParent = this.pointer.parentNode;
+            console.log(this.currentParent);
+        }
+    }
 
-// 포인터를 찾는 함수
-function findPointer() {
-    pointer = document.getElementById("pointer");
-}
+    // 현재 포인터가 가리키는 li요소 스타일 변경 
+    updateParentStyle() {
+        this.findPointerParent();
+        if (this.currentParent) {
+            // 새로운 스타일 적용
+            this.currentParent.style.boxShadow = "0 0 20px #fff, 0 0 10px rgb(227, 90, 155)";
+        }
+    }
 
-// 포인터의 부모요소 p를 찾는 함수
-function findPointerParent() {
-    currentParent = pointer.parentNode;
-}
+    // 현재 포인터가 가리키는 요소아래에 있는 a태그에 접속
+    enterGame() {
+        if (this.currentParent) {
+            this.currentParent.querySelector('a').click();
+        }
+    }
 
-// movePointerDown
-// 다음부모요에 pointer를 appenchild시키고 클래스이름을 pointer_parent로 지정
-// 이전 부모요의 클래스 이름은 nonPoint_parent로 지정
-function movePointerDown() {
-    // 부모 다음요소를 찾기
-    const nextParent = currentParent.nextElementSibling;
+    // 포인터를 움직이는 메서드
+    movePointer(key) {
+        // 먼저 현재 포인터가 존재하는지 검사후
+        // 포인터를 기준으로 다음요소와 이전요소를 찾는다.
+        if (this.pointer) {
+            const nextParent = this.currentParent.nextElementSibling;
+            const previousParent = this.currentParent.previousElementSibling;
 
-    if (nextParent) {
-        nextParent.appendChild(pointer);
+            // 키다운 시 포인터가 가리키고 있는 현재요소는 새로적용된 스타일이 무조건 삭제 되어야한다.
+            if (key == 39 && nextParent) {
+                this.currentParent.style.boxShadow = "";
+                nextParent.appendChild(this.pointer);
 
-        currentParent.className = "nonPoint_parent";
-        nextParent.className = "pointer_parent";
+            } else if (key == 37 && previousParent) {
+                this.currentParent.style.boxShadow = "";
+                previousParent.appendChild(this.pointer);
+
+            } 
+        }
     }
 }
 
-
-// movePointerUp
-function movePointerUp() {
-    // 이전 요소 찾기
-    const previousParent = currentParent.previousElementSibling;
-
-    if (previousParent) {
-        previousParent.appendChild(pointer);
-
-        currentParent.className = "nonPoint_parent";
-        previousParent.className = "pointer_parent";
-    }
-
-}
-
-// 엔터 키
-function enterGame() {
-    findPointerParent();
-
-    if (currentParent) {
-        currentParent.querySelector('a').click();
-    }
-
-}
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // DOM 구축이 완료된 후에 실행할 코드
-
-    // 버튼요소
-    const upKey = document.getElementById("upKey");
-    const downKey = document.getElementById("downKey");
-    const aKey = document.getElementById("aKey");
-
-    // 포인터와 포인터의 부모를 찾는 함수 호출
-    findPointer();
-    console.log(pointer);
-
-    findPointerParent();
-    console.log(currentParent);
-
-
-    // 키다운 이벤트
+    const pointerController = new PointerController();
+    pointerController.findPointer();
+    pointerController.findPointerParent();
+    pointerController.updateParentStyle(); // 좌우 키를 누를 때마다 스타일을 업데이트
+    
+    // 키보드 이벤트 등록
     document.addEventListener('keydown', function (event) {
-        // 아래 방향키
-        if (event.key === 'ArrowDown') {
-            // 1. 포인터를 찾기
-            findPointer();
-            console.log(pointer);
-            // 2. 포인터의 부모요소 찾기
-            findPointerParent();
-            console.log(currentParent);
-            // 3. 기능실행
-            movePointerDown();
-       
+        pointerController.findPointer();
+        pointerController.findPointerParent();
+
+
+        if (event.key === 'ArrowRight') {
+            pointerController.movePointer(39);
+            pointerController.updateParentStyle(); // 좌우 키를 누를 때마다 스타일을 업데이트
+
         }
 
-        // 위 방향키
-        if (event.key === 'ArrowUp') {
-            findPointer();
-            console.log(pointer);
+        if (event.key === "ArrowLeft") {
+            pointerController.movePointer(37);
+            pointerController.updateParentStyle(); // 좌우 키를 누를 때마다 스타일을 업데이트
 
-            findPointerParent();
-            console.log(currentParent);
-
-            movePointerUp();
         }
 
-        // 엔터 키
-        if (window.event.keyCode == 13) {
-            enterGame();
+        if (event.key === 'Enter' && pointerController.currentParent) {
+            pointerController.enterGame();
         }
-
     });
-
 });
 

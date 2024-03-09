@@ -3,13 +3,12 @@ let canvas;
 let ctx;
 
 // 컨텐츠 영역
-var contentBody = document.getElementById("content");
+var contentBody = document.getElementById("game");
 
 canvas = document.createElement("canvas");
 ctx = canvas.getContext("2d")
 canvas.width = 400;
 canvas.height = 700;
-// document.body.appendChild(canvas);
 contentBody.appendChild(canvas);
 
 // 마리오 좌표
@@ -107,7 +106,6 @@ function keyboardListener() {
         delete keysDown[event.keyCode];
         console.log("없음");
     })
-
 }
 
 function update() {
@@ -137,6 +135,7 @@ function update() {
 function render() {
     // 화면 지우기
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     // 이미지 그리기
     ctx.drawImage(mario, x, y);
     ctx.fillText('SCORE: '+ score, 20, 20);
@@ -160,14 +159,36 @@ function main() {
 
         ctx.fillText("GAME OVER", 200, 180);
         ctx.strokeText("GAME OVER", 200, 180);
-
-        document.getElementById("restart").style.display = "block";
     }
 }
 
 
-loadImage();
-keyboardListener();
-createCoin();
-main();
+// loadImage();
+// keyboardListener();
+// createCoin();
+// main();
 
+// 페이지 로드 시 실행되는 함수
+function initialLoad() {
+    loadImage();
+    keyboardListener();
+    createCoin();
+    main();
+}
+
+
+// 페이지 로드 시 초기 함수 호출
+document.addEventListener("DOMContentLoaded", initialLoad);
+
+
+
+
+reloadButton = document.getElementById("button_wrapper").querySelector("button");
+
+// 페이지를 다시 로드하는 함수
+function reloadPage() {
+    location.reload(true); // true를 전달하여 서버로부터 새로운 콘텐츠를 가져옵니다.
+}
+
+// 버튼 클릭 이벤트에 함수 연결
+reloadButton.addEventListener("click", reloadPage);
